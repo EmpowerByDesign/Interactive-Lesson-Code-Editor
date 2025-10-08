@@ -31,68 +31,55 @@
 
 ## Screenshots
 
-Below are sample screenshots demonstrating the onboarding flow, learning environment, feedback system, and progression tracking.  
-*(Image file paths shown for clarity.)*
+Below are sample screenshots demonstrating the onboarding flow, learning environment, feedback system, and progression tracking.
 
 ### Onboarding Flow
 
-![Welcome Screen](images/onboarding 1.png)  
-*Welcome screen with instant start and highlights of interactive, hands-on learning.*  
-`File path: images/onboarding 1.png`
+![Welcome Screen](images/onboarding%201.png)  
+*Welcome screen with instant start and highlights of interactive, hands-on learning.*
 
-![Learning Style Assessment](images/onboarding 2.png)  
-*Choose your preferred learning style: Visual, Auditory, or Hands-On.*  
-`File path: images/onboarding 2.png`
+![Learning Style Assessment](images/onboarding%202.png)  
+*Choose your preferred learning style: Visual, Auditory, or Hands-On.*
 
-![Experience Level Selection](images/onboarding 3.png)  
-*Select your experience level: Beginner, Intermediate, or Advanced.*  
-`File path: images/onboarding 3.png`
+![Experience Level Selection](images/onboarding%203.png)  
+*Select your experience level: Beginner, Intermediate, or Advanced.*
 
-![Goal Setting](images/onboarding 4.png)  
-*Set your project goals: Websites, Web Apps, or Games.*  
-`File path: images/onboarding 4.png`
+![Goal Setting](images/onboarding%204.png)  
+*Set your project goals: Websites, Web Apps, or Games.*
 
 ### Personalized Path & Course Start
 
-![Personalized Learning Path](images/onboarding 5.png)  
-*Your learning path is customized based on your assessment.*  
-`File path: images/onboarding 5.png`
+![Personalized Learning Path](images/onboarding%205.png)  
+*Your learning path is customized based on your assessment.*
 
 ### Learning Environment
 
-![Lesson with Live Preview and Code Editor](images/3 panel layout - beta.png)  
-*Three-panel interface: lesson content, live preview, and interactive code editor.*  
-`File path: images/3 panel layout - beta.png`
+![Lesson with Live Preview and Code Editor](images/3%20panel%20layout%20-%20beta.png)  
+*Three-panel interface: lesson content, live preview, and interactive code editor.*
 
-![Basic Code Editor and Preview](images/live code view - before.png)  
-*Write code and see instant results side-by-side.*  
-`File path: images/live code view - before.png`
+![Basic Code Editor and Preview](images/live%20code%20view%20-%20before.png)  
+*Write code and see instant results side-by-side.*
 
-![Another Live Preview Example](images/live code view - after 1.png)  
-*Write code, run it, and see output instantly.*  
-`File path: images/live code view - after 1.png`
+![Another Live Preview Example](images/live%20code%20view%20-%20after%201.png)  
+*Write code, run it, and see output instantly.*
 
 ### Feedback & Gamification
 
-![Lesson Completion and Points](images/live code view - after.png)  
-*Earn points and progress with instant feedback on lesson completion.*  
-`File path: images/live code view - after.png`
+![Lesson Completion and Points](images/live%20code%20view%20-%20after.png)  
+*Earn points and progress with instant feedback on lesson completion.*
 
 ### Progress Tracking
 
-![Course Overview](images/course overview.png)  
-*Track your progress through lessons and unlock new content.*  
-`File path: images/course overview.png`
+![Course Overview](images/course%20overview.png)  
+*Track your progress through lessons and unlock new content.*
 
 ### More Interactive Examples
 
-![Lesson with Code and Live Feedback](images/using get hint 1.png)  
-*Guided lessons with practice exercises and immediate feedback on errors.*  
-`File path: images/using get hint 1.png`
+![Lesson with Code and Live Feedback](images/using%20get%20hint%201.png)  
+*Guided lessons with practice exercises and immediate feedback on errors.*
 
-![Error Feedback Example](images/feedback 1.png)  
-*Helpful error messages guide you to fix mistakes and learn debugging skills.*  
-`File path: images/feedback 1.png`
+![Error Feedback Example](images/feedback%201.png)  
+*Helpful error messages guide you to fix mistakes and learn debugging skills.*
 
 ---
 
@@ -148,4 +135,3 @@ Please watch this repository for updates, or check back as the platform evolves!
 
 **EmpowerByDesign – Interactive Lesson Code Editor**  
 Learn to code the way you learn best—with AI-powered guidance, hands-on practice, and a community that grows with you.
-

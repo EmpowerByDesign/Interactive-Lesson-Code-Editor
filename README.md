@@ -8,9 +8,7 @@
 
 ## Overview
 
-**Interactive Lesson Code Editor** is the foundation for a next-generation adaptive coding education platform. Inspired by the best of Codecademy, freeCodeCamp, and hands-on learning, this project is designed to empower complete beginners and self-taught developers to learn HTML, CSS, JavaScript, and modern web development through interactive, personalized lessons.
-
-This platform bridges the gap between users and AI coding tools by focusing on true coding mastery—not just code completion—with a three-panel live coding environment, gamification, immediate feedback, and learning path personalization.
+**Interactive Lesson Code Editor** is designed to be a next-generation adaptive coding education platform. Drawing inspiration from Codecademy, freeCodeCamp, and hands-on learning environments, this project aims to create a truly interactive and adaptive space for mastering web development skills. The platform bridges the gap between learners and AI-powered tools, focusing on deep understanding, skill-building, and mastery through a three-panel live coding environment, personalized pathways, gamification, and immediate feedback.
 
 ---
 
@@ -33,55 +31,68 @@ This platform bridges the gap between users and AI coding tools by focusing on t
 
 ## Screenshots
 
-Below are sample screenshots demonstrating the onboarding flow, learning environment, feedback system, and progression tracking.
+Below are sample screenshots demonstrating the onboarding flow, learning environment, feedback system, and progression tracking.  
+*(Image file paths shown for clarity.)*
 
 ### Onboarding Flow
 
-![Welcome Screen](images/onboarding 1.png)
-*Welcome screen with instant start and highlights of interactive, hands-on learning.*
+![Welcome Screen](images/onboarding 1.png)  
+*Welcome screen with instant start and highlights of interactive, hands-on learning.*  
+`File path: images/onboarding 1.png`
 
-![Learning Style Assessment](image3)
-*Choose your preferred learning style: Visual, Auditory, or Hands-On.*
+![Learning Style Assessment](images/onboarding 2.png)  
+*Choose your preferred learning style: Visual, Auditory, or Hands-On.*  
+`File path: images/onboarding 2.png`
 
-![Experience Level Selection](image2)
-*Select your experience level: Beginner, Intermediate, or Advanced.*
+![Experience Level Selection](images/onboarding 3.png)  
+*Select your experience level: Beginner, Intermediate, or Advanced.*  
+`File path: images/onboarding 3.png`
 
-![Goal Setting](image1)
-*Set your project goals: Websites, Web Apps, or Games.*
+![Goal Setting](images/onboarding 4.png)  
+*Set your project goals: Websites, Web Apps, or Games.*  
+`File path: images/onboarding 4.png`
 
 ### Personalized Path & Course Start
 
-![Personalized Learning Path](image8)
-*Your learning path is customized based on your assessment.*
+![Personalized Learning Path](images/onboarding 5.png)  
+*Your learning path is customized based on your assessment.*  
+`File path: images/onboarding 5.png`
 
 ### Learning Environment
 
-![Lesson with Live Preview and Code Editor](image7)
-*Three-panel interface: lesson content, live preview, and interactive code editor.*
+![Lesson with Live Preview and Code Editor](images/3 panel layout - beta.png)  
+*Three-panel interface: lesson content, live preview, and interactive code editor.*  
+`File path: images/3 panel layout - beta.png`
 
-![Basic Code Editor and Preview](image6)
-*Write code and see instant results side-by-side.*
+![Basic Code Editor and Preview](images/live code view - before.png)  
+*Write code and see instant results side-by-side.*  
+`File path: images/live code view - before.png`
+
+![Another Live Preview Example](images/live code view - after 1.png)  
+*Write code, run it, and see output instantly.*  
+`File path: images/live code view - after 1.png`
 
 ### Feedback & Gamification
 
-![Lesson Completion and Points](image5)
-*Earn points and progress with instant feedback on lesson completion.*
+![Lesson Completion and Points](images/live code view - after.png)  
+*Earn points and progress with instant feedback on lesson completion.*  
+`File path: images/live code view - after.png`
 
 ### Progress Tracking
 
-![Course Overview](image9)
-*Track your progress through lessons and unlock new content.*
+![Course Overview](images/course overview.png)  
+*Track your progress through lessons and unlock new content.*  
+`File path: images/course overview.png`
 
 ### More Interactive Examples
 
-![Lesson with Code and Live Feedback](image10)
-*Guided lessons with practice exercises and immediate feedback on errors.*
+![Lesson with Code and Live Feedback](images/using get hint 1.png)  
+*Guided lessons with practice exercises and immediate feedback on errors.*  
+`File path: images/using get hint 1.png`
 
-![Error Feedback Example](image11)
-*Helpful error messages guide you to fix mistakes and learn debugging skills.*
-
-![Another Live Preview Example](image12)
-*Write code, run it, and see output instantly.*
+![Error Feedback Example](images/feedback 1.png)  
+*Helpful error messages guide you to fix mistakes and learn debugging skills.*  
+`File path: images/feedback 1.png`
 
 ---
 
@@ -137,3 +148,4 @@ Please watch this repository for updates, or check back as the platform evolves!
 
 **EmpowerByDesign – Interactive Lesson Code Editor**  
 Learn to code the way you learn best—with AI-powered guidance, hands-on practice, and a community that grows with you.
+

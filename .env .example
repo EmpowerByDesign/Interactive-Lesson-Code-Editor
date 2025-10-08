@@ -1,0 +1,82 @@
+# .env.example
+# Copy this file to .env.local and fill in your actual values
+
+# =====================================================
+# SUPABASE CONFIGURATION
+# =====================================================
+# Get these from your Supabase project:
+# 1. Go to https://app.supabase.com
+# 2. Select your project
+# 3. Go to Settings > API
+# 4. Copy the URL and anon/public key
+
+VITE_SUPABASE_URL=https://your-project.supabase.co
+VITE_SUPABASE_ANON_KEY=your-anon-key-here
+
+# =====================================================
+# OPTIONAL: CLAUDE API (for AI tutor feature)
+# =====================================================
+# Get this from https://console.anthropic.com
+# NOTE: This should be kept on the backend/server, not exposed to client
+# For now, we'll handle this through Vercel serverless functions
+
+CLAUDE_API_KEY=your-claude-api-key-here
+
+# =====================================================
+# SETUP INSTRUCTIONS
+# =====================================================
+
+# 1. Create a Supabase project:
+#    - Go to https://supabase.com
+#    - Click "New Project"
+#    - Choose a name, database password, and region
+#    - Wait for project to be provisioned (~2 minutes)
+
+# 2. Run the SQL schema:
+#    - Go to SQL Editor in Supabase dashboard
+#    - Copy the entire content from supabase_schema.sql
+#    - Click "Run" to create all tables
+
+# 3. Enable Email Authentication:
+#    - Go to Authentication > Providers
+#    - Enable "Email" provider
+#    - Configure email templates (optional)
+
+# 4. Get your credentials:
+#    - Go to Settings > API
+#    - Copy "Project URL" → paste as VITE_SUPABASE_URL
+#    - Copy "anon/public" key → paste as VITE_SUPABASE_ANON_KEY
+
+# 5. Create .env.local file:
+#    - Copy this file: cp .env.example .env.local
+#    - Fill in your actual Supabase credentials
+#    - NEVER commit .env.local to git (already in .gitignore)
+
+# 6. Restart your dev server:
+#    - npm run dev
+
+# =====================================================
+# PRODUCTION DEPLOYMENT (Vercel)
+# =====================================================
+
+# When deploying to Vercel:
+# 1. Go to your Vercel project settings
+# 2. Navigate to "Environment Variables"
+# 3. Add each variable (without VITE_ prefix for server-side vars)
+# 4. Redeploy your application
+
+# =====================================================
+# SECURITY NOTES
+# =====================================================
+
+# ✅ Safe to expose (client-side):
+# - VITE_SUPABASE_URL
+# - VITE_SUPABASE_ANON_KEY (it's called "anon" for a reason - has RLS protection)
+
+# ❌ Never expose (server-side only):
+# - CLAUDE_API_KEY
+# - Any service role keys
+# - Database passwords
+
+# Supabase handles security through Row Level Security (RLS)
+# Users can only access their own data even with the anon key

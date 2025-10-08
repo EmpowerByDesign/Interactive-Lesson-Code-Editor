@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Editor from '@monaco-editor/react';
 import { Play, Lightbulb, ChevronRight } from 'lucide-react';
 import { lessons } from '../lessons';
@@ -8,19 +8,53 @@ import { CelebrationModal } from './CelebrationModal';
 import { FeedbackMessage } from './FeedbackMessage';
 import { ProgressHeader } from './ProgressHeader';
 
+const PROGRESS_STORAGE_KEY = 'codelearn_progress';
+
+const loadProgress = (): { progress: UserProgress; lessonIndex: number } => {
+  const saved = localStorage.getItem(PROGRESS_STORAGE_KEY);
+  if (saved) {
+    try {
+      const parsed = JSON.parse(saved);
+      return {
+        progress: parsed.progress || {
+          currentLesson: 1,
+          points: 0,
+          streak: 3,
+          completedLessons: [],
+        },
+        lessonIndex: parsed.lessonIndex || 0,
+      };
+    } catch (e) {
+      console.error('Failed to parse saved progress');
+    }
+  }
+  return {
+    progress: {
+      currentLesson: 1,
+      points: 0,
+      streak: 3,
+      completedLessons: [],
+    },
+    lessonIndex: 0,
+  };
+};
+
+const saveProgress = (progress: UserProgress, lessonIndex: number) => {
+  localStorage.setItem(
+    PROGRESS_STORAGE_KEY,
+    JSON.stringify({ progress, lessonIndex })
+  );
+};
+
 export function LearningInterface() {
-  const [currentLessonIndex, setCurrentLessonIndex] = useState(0);
+  const initialData = loadProgress();
+  const [currentLessonIndex, setCurrentLessonIndex] = useState(initialData.lessonIndex);
   const currentLesson = lessons[currentLessonIndex];
 
   const [code, setCode] = useState(currentLesson.starterCode);
   const [previewContent, setPreviewContent] = useState(currentLesson.starterCode);
 
-  const [progress, setProgress] = useState<UserProgress>({
-    currentLesson: 1,
-    points: 0,
-    streak: 3,
-    completedLessons: [],
-  });
+  const [progress, setProgress] = useState<UserProgress>(initialData.progress);
 
   const [feedback, setFeedback] = useState<{
     type: 'success' | 'error' | 'hint';
@@ -35,6 +69,10 @@ export function LearningInterface() {
   const [showCelebration, setShowCelebration] = useState(false);
   const [currentHintIndex, setCurrentHintIndex] = useState(0);
   const iframeRef = useRef<HTMLIFrameElement>(null);
+
+  useEffect(() => {
+    saveProgress(progress, currentLessonIndex);
+  }, [progress, currentLessonIndex]);
 
   const handleRunCode = () => {
     setPreviewContent(code);
@@ -114,6 +152,13 @@ export function LearningInterface() {
     setShowCelebration(false);
   };
 
+  const handleResetProgress = () => {
+    if (window.confirm('Are you sure you want to reset all progress? This cannot be undone.')) {
+      localStorage.removeItem(PROGRESS_STORAGE_KEY);
+      window.location.reload();
+    }
+  };
+
   return (
     <div className="h-screen flex flex-col bg-gray-900 animate-fadeIn">
       <ProgressHeader
@@ -121,6 +166,7 @@ export function LearningInterface() {
         streak={progress.streak}
         currentLesson={currentLessonIndex + 1}
         totalLessons={lessons.length}
+        onResetProgress={handleResetProgress}
       />
 
       <div className="flex-1 flex overflow-hidden">

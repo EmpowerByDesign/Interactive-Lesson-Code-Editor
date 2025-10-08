@@ -6,6 +6,7 @@ import { ResultsScreen } from './components/ResultsScreen';
 import { LearningInterface } from './components/LearningInterface';
 
 const STORAGE_KEY = 'codelearn_preferences';
+const PROGRESS_STORAGE_KEY = 'codelearn_progress';
 
 function App() {
   const [currentStep, setCurrentStep] = useState<OnboardingStep>('welcome');
@@ -16,10 +17,20 @@ function App() {
   });
 
   useEffect(() => {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved) {
+    const savedProgress = localStorage.getItem(PROGRESS_STORAGE_KEY);
+    const savedPreferences = localStorage.getItem(STORAGE_KEY);
+
+    if (savedProgress && savedPreferences) {
       try {
-        const parsedPrefs = JSON.parse(saved);
+        const parsedPrefs = JSON.parse(savedPreferences);
+        setPreferences(parsedPrefs);
+        setCurrentStep('learning');
+      } catch (e) {
+        console.error('Failed to parse saved data');
+      }
+    } else if (savedPreferences) {
+      try {
+        const parsedPrefs = JSON.parse(savedPreferences);
         setPreferences(parsedPrefs);
         setCurrentStep('learning');
       } catch (e) {

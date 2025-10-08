@@ -7,6 +7,7 @@ import { validateCode } from '../utils/validation';
 import { CelebrationModal } from './CelebrationModal';
 import { FeedbackMessage } from './FeedbackMessage';
 import { ProgressHeader } from './ProgressHeader';
+import { CourseOverview } from './CourseOverview';
 
 const PROGRESS_STORAGE_KEY = 'codelearn_progress';
 
@@ -68,11 +69,18 @@ export function LearningInterface() {
 
   const [showCelebration, setShowCelebration] = useState(false);
   const [currentHintIndex, setCurrentHintIndex] = useState(0);
+  const [showOverview, setShowOverview] = useState(false);
   const iframeRef = useRef<HTMLIFrameElement>(null);
 
   useEffect(() => {
     saveProgress(progress, currentLessonIndex);
   }, [progress, currentLessonIndex]);
+
+  useEffect(() => {
+    const lesson = lessons[currentLessonIndex];
+    setCode(lesson.starterCode);
+    setPreviewContent(lesson.starterCode);
+  }, [currentLessonIndex]);
 
   const handleRunCode = () => {
     setPreviewContent(code);
@@ -159,6 +167,22 @@ export function LearningInterface() {
     }
   };
 
+  const handleToggleView = () => {
+    setShowOverview(!showOverview);
+  };
+
+  const handleSelectLesson = (index: number) => {
+    setCurrentLessonIndex(index);
+    setCurrentHintIndex(0);
+    setFeedback({ type: 'success', message: '', isVisible: false });
+    setShowCelebration(false);
+    setProgress((prev) => ({
+      ...prev,
+      currentLesson: index + 1,
+    }));
+    setShowOverview(false);
+  };
+
   return (
     <div className="h-screen flex flex-col bg-gray-900 animate-fadeIn">
       <ProgressHeader
@@ -167,9 +191,18 @@ export function LearningInterface() {
         currentLesson={currentLessonIndex + 1}
         totalLessons={lessons.length}
         onResetProgress={handleResetProgress}
+        showOverview={showOverview}
+        onToggleView={handleToggleView}
       />
 
-      <div className="flex-1 flex overflow-hidden">
+      {showOverview ? (
+        <CourseOverview
+          completedLessons={progress.completedLessons}
+          currentLessonIndex={currentLessonIndex}
+          onSelectLesson={handleSelectLesson}
+        />
+      ) : (
+        <div className="flex-1 flex overflow-hidden">
         {/* LEFT PANEL - Lesson Content */}
         <div className="w-[40%] bg-white overflow-y-auto">
           <div className="p-8">
@@ -274,15 +307,16 @@ export function LearningInterface() {
             </div>
           </div>
         </div>
-      </div>
 
-      <CelebrationModal
-        isOpen={showCelebration}
-        onClose={handleCelebrationClose}
-        onNextLesson={handleNextLesson}
-        points={10}
-        isLastLesson={currentLessonIndex === lessons.length - 1}
-      />
+        <CelebrationModal
+          isOpen={showCelebration}
+          onClose={handleCelebrationClose}
+          onNextLesson={handleNextLesson}
+          points={10}
+          isLastLesson={currentLessonIndex === lessons.length - 1}
+        />
+      </div>
+      )}
     </div>
   );
 }

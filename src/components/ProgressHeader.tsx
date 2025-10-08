@@ -1,4 +1,4 @@
-import { Award, Flame, RotateCcw } from 'lucide-react';
+import { Award, Flame, RotateCcw, LayoutGrid, BookOpen } from 'lucide-react';
 
 interface ProgressHeaderProps {
   points: number;
@@ -6,6 +6,8 @@ interface ProgressHeaderProps {
   currentLesson: number;
   totalLessons: number;
   onResetProgress?: () => void;
+  showOverview?: boolean;
+  onToggleView?: () => void;
 }
 
 export function ProgressHeader({
@@ -14,6 +16,8 @@ export function ProgressHeader({
   currentLesson,
   totalLessons,
   onResetProgress,
+  showOverview = false,
+  onToggleView,
 }: ProgressHeaderProps) {
   return (
     <div className="bg-white border-b border-gray-200 px-8 py-4 flex items-center justify-between">
@@ -22,6 +26,24 @@ export function ProgressHeader({
         <div className="text-sm text-gray-600 font-medium bg-gray-100 px-3 py-1 rounded-full">
           Lesson {currentLesson} of {totalLessons}
         </div>
+        {onToggleView && (
+          <button
+            onClick={onToggleView}
+            className="flex items-center gap-2 bg-blue-50 hover:bg-blue-100 px-4 py-2 rounded-lg border border-blue-200 transition-colors"
+          >
+            {showOverview ? (
+              <>
+                <BookOpen className="w-4 h-4 text-blue-600" />
+                <span className="text-sm text-blue-700 font-medium">Back to Learning</span>
+              </>
+            ) : (
+              <>
+                <LayoutGrid className="w-4 h-4 text-blue-600" />
+                <span className="text-sm text-blue-700 font-medium">Course Overview</span>
+              </>
+            )}
+          </button>
+        )}
       </div>
 
       <div className="flex items-center gap-4">

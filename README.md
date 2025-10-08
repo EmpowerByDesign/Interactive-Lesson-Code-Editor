@@ -37,7 +37,7 @@ Below are sample screenshots demonstrating the onboarding flow, learning environ
 
 ### Onboarding Flow
 
-![Welcome Screen](image4)
+![Welcome Screen](images/onboarding 1.png)
 *Welcome screen with instant start and highlights of interactive, hands-on learning.*
 
 ![Learning Style Assessment](image3)
